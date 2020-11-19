@@ -22,6 +22,9 @@ class calculate:
         # extract input data ( as dataframe )
         # set index with the first column
         self.df = pandas.read_excel(self.infile, na_values=['NA'])
+        # map the lowering function to all column names
+        self.df.columns = map(str.lower, self.df.columns)
+        # set index with the first columns
         c = str(self.df.columns[0])
         self.df = self.df.set_index(c)
 
